@@ -16,11 +16,13 @@
  *             (la riga profilo auto-creata dal trigger DB veniva interpretata come profilo valido)
  *   - v1.7.2: rimosso magic link dalla LoginScreen (rate limit Supabase free tier 4/ora);
  *             fix overflow del date input su iOS Safari (-webkit-appearance:none)
+ *   - v1.7.3: bottone Google disabilitato con badge "Presto disponibile" finch\xe9 non
+ *             configuriamo OAuth Google (richiede verifica + dominio per uso pubblico)
  *
  * Per forzare update: bump CACHE_VERSION qui sotto.
  */
 
-const CACHE_VERSION = 'gymtracker-v1.7.2';
+const CACHE_VERSION = 'gymtracker-v1.7.3';
 const CACHE_RUNTIME = 'gymtracker-runtime-v3';
 
 /* HTML escluso dalla precache: viene preso network-first. */

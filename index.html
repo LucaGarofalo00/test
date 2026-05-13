@@ -2696,10 +2696,11 @@ function LoginScreen(p){
       h('div',{style:{fontSize:14,color:MUTED,lineHeight:1.5}},'Accedi per sincronizzare schede, sessioni e progressioni su tutti i tuoi dispositivi.')
     ),
     h('div',{style:{flex:1}},
-      /* Google */
-      h('button',{onClick:onGoogle,disabled:loading,style:Object.assign({},ghostBtn,{marginTop:0,marginBottom:14,display:'flex',alignItems:'center',justifyContent:'center',gap:10})},
+      /* Google — disabilitato in attesa di setup OAuth (verifica Google + dominio) */
+      h('button',{disabled:true,style:Object.assign({},ghostBtn,{marginTop:0,marginBottom:14,display:'flex',alignItems:'center',justifyContent:'center',gap:10,cursor:'not-allowed',opacity:0.55})},
         h('span',{style:{fontSize:18,fontWeight:700}},'G'),
-        h('span',null,'Continua con Google')
+        h('span',null,'Continua con Google'),
+        h('span',{style:{fontSize:10,fontWeight:700,letterSpacing:'0.08em',textTransform:'uppercase',padding:'3px 8px',borderRadius:6,background:ACC2,color:ACC,marginLeft:'auto'}},'Presto disponibile')
       ),
       h('div',{style:{display:'flex',alignItems:'center',gap:10,margin:'8px 0 18px',color:MUTED,fontSize:11}},
         h('div',{style:{flex:1,height:1,background:BORD}}),
