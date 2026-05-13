@@ -2908,8 +2908,12 @@ function App(){
         var remote = await sbLoadAll();
         if(cancelled || !remote) return;
 
-        /* Step 3: merge intelligente con quello locale (vince lastModified più recente) */
-        var remoteProfile = remote.profileRow ? profileRowToLocal(remote.profileRow) : null;
+        /* Step 3: merge intelligente con quello locale (vince lastModified più recente)
+           Nota: il trigger DB crea una riga `profiles` vuota al signup (solo id, niente nome).
+           Quella riga NON va trattata come profilo valido: altrimenti l'app salterebbe il
+           ProfileSetup mostrandolo per un istante e chiudendolo da solo. */
+        var hasRealProfile = remote.profileRow && remote.profileRow.nome && remote.profileRow.nome.trim().length > 0;
+        var remoteProfile = hasRealProfile ? profileRowToLocal(remote.profileRow) : null;
         var local = {schede: schede, sessions: sessions, profile: profile};
         var merged = mergeData(local, {schede: remote.schede, sessions: remote.sessions, profile: remoteProfile});
 

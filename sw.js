@@ -1,4 +1,4 @@
-/* GymTracker Service Worker — v1.7.0
+/* GymTracker Service Worker — v1.7.1
  * Strategy:
  *   - Precache: shell app (manifest, icons) on install
  *   - HTML (index.html, /): NETWORK-FIRST so updates propagate immediately;
@@ -12,11 +12,13 @@
  *             + network-first per HTML (niente più "vedo la vecchia versione")
  *   - v1.7.0: cloud DB Supabase con auth (magic link / password / Google),
  *             offline-first con sync automatica, migrazione una-tantum da localStorage
+ *   - v1.7.1: fix ProfileSetup che si chiudeva da solo subito dopo il login
+ *             (la riga profilo auto-creata dal trigger DB veniva interpretata come profilo valido)
  *
  * Per forzare update: bump CACHE_VERSION qui sotto.
  */
 
-const CACHE_VERSION = 'gymtracker-v1.7.0';
+const CACHE_VERSION = 'gymtracker-v1.7.1';
 const CACHE_RUNTIME = 'gymtracker-runtime-v3';
 
 /* HTML escluso dalla precache: viene preso network-first. */
