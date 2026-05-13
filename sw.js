@@ -14,11 +14,13 @@
  *             offline-first con sync automatica, migrazione una-tantum da localStorage
  *   - v1.7.1: fix ProfileSetup che si chiudeva da solo subito dopo il login
  *             (la riga profilo auto-creata dal trigger DB veniva interpretata come profilo valido)
+ *   - v1.7.2: rimosso magic link dalla LoginScreen (rate limit Supabase free tier 4/ora);
+ *             fix overflow del date input su iOS Safari (-webkit-appearance:none)
  *
  * Per forzare update: bump CACHE_VERSION qui sotto.
  */
 
-const CACHE_VERSION = 'gymtracker-v1.7.1';
+const CACHE_VERSION = 'gymtracker-v1.7.2';
 const CACHE_RUNTIME = 'gymtracker-runtime-v3';
 
 /* HTML escluso dalla precache: viene preso network-first. */
